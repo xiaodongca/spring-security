@@ -31,6 +31,10 @@
     <div class="container">
         <div class="starter-template">
            <h1 th:text="${msg.title}"></h1>
+            <!--1.在html标签中我们引入的Spring Security
+                2.通过sec:authentication=”name”我们可以获取当前用户名
+                3.sec:authorize="hasRole('ROLE_ADMIN')表示当前用户角色为ROLE_ADMIN的话显示里边的内容
+                4.sec:authorize="hasRole('ROLE_USER')表示当前用户角色为ROLE_USER的话显示该DIV里边的内容-->
             <p class="bg-primary" th:text="${msg.content}"></p>
             <div sec:authorize="hasRole('ROLE_ADMIN')">
                 <p class="bg-info" th:text="${msg.etraInfo}"></p>
